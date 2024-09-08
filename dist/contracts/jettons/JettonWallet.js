@@ -36,7 +36,7 @@ class JettonWallet {
                 .endCell(),
         });
     }
-    async createTransfer(provider, value, { queryId, amount, destination, responseAddress, customPayload, forwardAmount, forwardPayload, }) {
+    async getTransfer(provider, value, { queryId, amount, destination, responseAddress, customPayload, forwardAmount, forwardPayload, }) {
         return await provider.internalArgs({
             value,
             sendMode: core_1.SendMode.PAY_GAS_SEPARATELY,

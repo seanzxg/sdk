@@ -64,7 +64,7 @@ class VaultNative extends Vault_1.Vault {
             value: amount + (gasAmount ?? (0, core_1.toNano)('0.2')),
         });
     }
-    async createSwap(provider, { queryId, amount, poolAddress, limit, swapParams, next, gasAmount, }) {
+    async getSwap(provider, { queryId, amount, poolAddress, limit, swapParams, next, gasAmount, }) {
         return await provider.internalArgs({
             sendMode: core_1.SendMode.PAY_GAS_SEPARATELY,
             body: (0, core_1.beginCell)()

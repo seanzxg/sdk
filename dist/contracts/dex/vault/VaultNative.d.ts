@@ -33,7 +33,7 @@ export declare class VaultNative extends Vault {
         next?: SwapStep;
         gasAmount?: bigint;
     }): Promise<void>;
-    createSwap(provider: ContractProvider & {
+    getSwap(provider: ContractProvider & {
         internalArgs: any;
     }, { queryId, amount, poolAddress, limit, swapParams, next, gasAmount, }: {
         queryId?: bigint | number;

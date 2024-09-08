@@ -22,7 +22,7 @@ export declare class JettonWallet implements Contract {
         forwardAmount?: bigint;
         forwardPayload?: Cell;
     }): Promise<void>;
-    createTransfer(provider: ContractProvider & {
+    getTransfer(provider: ContractProvider & {
         internalArgs: any;
     }, value: bigint, { queryId, amount, destination, responseAddress, customPayload, forwardAmount, forwardPayload, }: {
         queryId?: number | bigint;
