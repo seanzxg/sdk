@@ -112,4 +112,45 @@ export class VaultNative extends Vault {
       value: amount + (gasAmount ?? toNano('0.2')),
     });
   }
+
+  async createSwap(
+    provider: ContractProvider & { internalArgs: any },
+    {
+      queryId,
+      amount,
+      poolAddress,
+      limit,
+      swapParams,
+      next,
+      gasAmount,
+    }: {
+      queryId?: bigint | number;
+      amount: bigint;
+      poolAddress: Address;
+      limit?: bigint;
+      swapParams?: SwapParams;
+      next?: SwapStep;
+      gasAmount?: bigint;
+    },
+  ) {
+    return await provider.internalArgs({
+      sendMode: SendMode.PAY_GAS_SEPARATELY,
+      body: beginCell()
+        .storeUint(VaultNative.SWAP, 32)
+        .storeUint(queryId ?? 0, 64)
+        .storeCoins(amount)
+        .storeAddress(poolAddress)
+        .storeUint(0, 1)
+        .storeCoins(limit ?? 0)
+        .storeMaybeRef(next ? Vault.packSwapStep(next) : null)
+        .storeRef(Vault.packSwapParams(swapParams ?? {}))
+        .endCell(),
+      value: amount + (gasAmount ?? toNano('0.2')),
+    });
+  }
+  async send(provider: ContractProvider, via: Sender & { sends: any }, messages: any[]) {
+    await via.sends({
+      msgs: messages,
+    });
+  }
 }
