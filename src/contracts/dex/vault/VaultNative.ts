@@ -113,7 +113,7 @@ export class VaultNative extends Vault {
     });
   }
 
-  async createSwap(
+  async getSwap(
     provider: ContractProvider & { internalArgs: any },
     {
       queryId,

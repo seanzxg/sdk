@@ -57,7 +57,7 @@ export class JettonWallet implements Contract {
     });
   }
 
-  async createTransfer(
+  async getTransfer(
     provider: ContractProvider & { internalArgs: any },
     value: bigint,
     {
