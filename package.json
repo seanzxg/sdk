@@ -3,7 +3,7 @@
   "version": "0.8.6",
   "description": "SDK for DeDust Protocol v2",
   "license": "Apache-2.0",
-  "homepage": "https://dedust.io",
+  "repository": "https://github.com/seanzxg/sdk",
   "author": {
     "name": "Scaleton Labs LLC"
   },
